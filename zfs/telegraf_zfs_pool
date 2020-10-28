@@ -1,0 +1,3 @@
+#!/bin/bash
+
+zpool list -Hp | grep -v 'NAME *SIZE' | awk '{$9=int($9) ; print "zfs_pool,health=" $10 ",pool="  $1 " allocated=" $3 "i,capacity=" $8 "i,dedupratio=" $9 ",fragmentation=" $7 "i,free=" $4 "i,size=" $2 "i"}'
